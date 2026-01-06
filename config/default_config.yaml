@@ -1,0 +1,72 @@
+# Context Continuity Engine Configuration
+
+# Privacy Settings
+privacy:
+  enabled: true
+  blacklist_apps:
+    - "keepassxc"
+    - "bitwarden"
+  blacklist_urls:
+    - "*://*/login*"
+    - "*://*/password*"
+  blacklist_directories:
+    - "~/.ssh"
+    - "~/.gnupg"
+    - "~/Private"
+  exclude_file_types:
+    - ".key"
+    - ".pem"
+    - ".gpg"
+
+# Activity Monitoring
+monitoring:
+  enabled: true
+  poll_interval: 5  # seconds
+  track_window_focus: true
+  track_file_access: true
+  track_clipboard: false  # Privacy concern
+  track_typing: false  # Privacy concern
+  track_browser: true
+
+# Storage
+storage:
+  database_path: "data/activity.db"
+  retention_days: 90
+  auto_cleanup: true
+
+# Vector Database
+vector_db:
+  enabled: true
+  collection_name: "context_embeddings"
+  model: "all-MiniLM-L6-v2"
+  similarity_threshold: 0.7
+  max_results: 10
+
+# Temporal Graph
+graph:
+  enabled: true
+  max_nodes: 10000
+  decay_factor: 0.95  # Older connections decay
+  min_connection_strength: 0.1
+
+# Prediction
+prediction:
+  enabled: true
+  prediction_window: 3600  # seconds (1 hour)
+  min_confidence: 0.6
+  context_history_length: 20
+
+# API Server
+api:
+  enabled: false
+  host: "127.0.0.1"
+  port: 8765
+  enable_sync: false  # Cross-device sync
+  sync_interval: 300  # seconds
+
+# Logging
+logging:
+  level: "INFO"
+  file: "logs/context_engine.log"
+  max_size_mb: 10
+  backup_count: 5
