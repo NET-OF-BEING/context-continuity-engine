@@ -145,11 +145,14 @@ class ContextEngine:
                 )
 
             # Add to temporal graph
+            activity_type = activity.get('activity_type', 'unknown')
+            # Remove activity_type from dict to avoid duplicate keyword argument
+            graph_attrs = {k: v for k, v in activity.items() if k != 'activity_type'}
             self.graph.add_activity_node(
                 activity_id=f"activity_{activity_id}",
-                activity_type=activity.get('activity_type', 'unknown'),
+                activity_type=activity_type,
                 timestamp=datetime.now(),
-                **activity
+                **graph_attrs
             )
 
             # Get predictions for current activity
