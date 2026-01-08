@@ -137,4 +137,4 @@ MIT License - See LICENSE file
 
 ## Author
 
-DarkReach Labs
+Derek M D Chan
