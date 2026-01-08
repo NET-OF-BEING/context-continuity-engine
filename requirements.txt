@@ -14,18 +14,15 @@ uvicorn>=0.24.0
 pydantic>=2.5.0
 httpx>=0.25.0
 
-# Monitoring
-pyxhook3>=1.0.0  # Keyboard/mouse monitoring
+# Monitoring (X11)
 python-xlib>=0.33  # X11 window tracking
-pydbus>=0.6.0  # D-Bus for system integration
 
-# Data Processing
-pandas>=2.0.0
-numpy>=1.24.0
-sqlalchemy>=2.0.0
+# Data Processing (optional)
+# pandas>=2.0.0
+# numpy>=1.24.0
 
 # Utilities
 python-dotenv>=1.0.0
 click>=8.1.0
 rich>=13.0.0
-schedule>=1.2.0
+pyyaml>=6.0.0

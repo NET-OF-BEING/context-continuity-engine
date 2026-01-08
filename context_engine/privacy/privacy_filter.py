@@ -5,9 +5,9 @@ Filters and sanitizes activity data based on privacy rules.
 """
 
 import re
+import fnmatch
 from pathlib import Path
 from typing import Dict, Any, Optional, List
-from fnmatch import fnmatch
 import logging
 
 logger = logging.getLogger(__name__)
